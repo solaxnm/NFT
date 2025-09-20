@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nft.solanam.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block access to admin or private areas (if any)
+Disallow: /admin/
+Disallow: /.nuxt/
+Disallow: /api/
+
+# Allow all static assets
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /_nuxt/

@@ -1,0 +1,347 @@
+---
+title: "Technical Tutorials"
+subtitle: "Hands-on tutorials for NFT development, smart contracts, and blockchain integration"
+hero:
+  title: "NFT Technical Tutorials"
+  subtitle: "Step-by-step guides for developers to build, deploy, and integrate NFT applications"
+  icon: "heroicons:code-bracket"
+  gradient: "from-emerald-50 to-teal-50"
+  iconGradient: "from-emerald-500 to-teal-600"
+smartContractTutorials:
+  title: "Smart Contract Development"
+  subtitle: "Build production-ready NFT smart contracts"
+  tutorials:
+    - title: "ERC-721 NFT Contract from Scratch"
+      icon: "heroicons:document-text"
+      difficulty: "Beginner"
+      duration: "2-3 hours"
+      description: "Learn to create a basic ERC-721 NFT contract with minting functionality, metadata management, and ownership controls using OpenZeppelin libraries."
+      topics:
+        - "Setting up Hardhat development environment"
+        - "Understanding ERC-721 standard and interfaces"
+        - "Implementing mint, transfer, and burn functions"
+        - "Adding metadata URI management"
+        - "Setting up access controls and ownership"
+        - "Writing comprehensive unit tests"
+        - "Deploying to testnet and mainnet"
+      codeExample: |
+        // SPDX-License-Identifier: MIT
+        pragma solidity ^0.8.19;
+        
+        import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+        import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+        import "@openzeppelin/contracts/access/Ownable.sol";
+        import "@openzeppelin/contracts/utils/Counters.sol";
+        
+        contract MyNFT extends ERC721, ERC721URIStorage, Ownable {
+            using Counters for Counters.Counter;
+            Counters.Counter private _tokenIdCounter;
+            
+            uint256 public maxSupply = 10000;
+            uint256 public mintPrice = 0.01 ether;
+            
+            constructor() ERC721("MyNFT", "MNFT") {}
+            
+            function safeMint(address to, string memory uri) public payable {
+                require(msg.value >= mintPrice, "Insufficient payment");
+                require(_tokenIdCounter.current() < maxSupply, "Max supply reached");
+                
+                uint256 tokenId = _tokenIdCounter.current();
+                _tokenIdCounter.increment();
+                _safeMint(to, tokenId);
+                _setTokenURI(tokenId, uri);
+            }
+        }
+      gradient: "from-blue-50 to-indigo-50"
+      iconColor: "blue"
+    - title: "Advanced ERC-1155 Multi-Token Contract"
+      icon: "heroicons:squares-plus"
+      difficulty: "Intermediate"
+      duration: "4-5 hours"
+      description: "Build a sophisticated ERC-1155 contract supporting multiple token types, batch operations, and complex gaming mechanics."
+      topics:
+        - "ERC-1155 standard deep dive and benefits"
+        - "Implementing batch mint and transfer operations"
+        - "Creating fungible and non-fungible token types"
+        - "Advanced metadata management with IPFS"
+        - "Implementing royalty standards (EIP-2981)"
+        - "Gas optimization techniques"
+        - "Integration with marketplace contracts"
+      gradient: "from-purple-50 to-pink-50"
+      iconColor: "purple"
+    - title: "NFT Marketplace Smart Contract"
+      icon: "heroicons:building-storefront"
+      difficulty: "Advanced"
+      duration: "6-8 hours"
+      description: "Create a full-featured NFT marketplace with auctions, offers, royalties, and advanced trading mechanisms."
+      topics:
+        - "Marketplace architecture and design patterns"
+        - "Implementing fixed-price and auction sales"
+        - "Offer and bidding system with escrow"
+        - "Automated royalty distribution"
+        - "Fee management and revenue sharing"
+        - "Security considerations and reentrancy protection"
+        - "Integration with multiple NFT contracts"
+      gradient: "from-green-50 to-emerald-50"
+      iconColor: "green"
+frontendTutorials:
+  title: "Frontend Integration"
+  subtitle: "Build user interfaces for NFT applications"
+  tutorials:
+    - title: "React NFT Gallery with Web3 Integration"
+      icon: "heroicons:photo"
+      difficulty: "Intermediate"
+      duration: "3-4 hours"
+      description: "Build a responsive NFT gallery that connects to wallets, displays NFT collections, and handles blockchain interactions."
+      topics:
+        - "Setting up React with Web3 libraries"
+        - "Wallet connection with MetaMask and WalletConnect"
+        - "Fetching NFT metadata from IPFS"
+        - "Displaying NFTs with lazy loading"
+        - "Implementing search and filter functionality"
+        - "Handling transaction states and errors"
+      gradient: "from-cyan-50 to-blue-50"
+      iconColor: "cyan"
+    - title: "NFT Minting DApp with Next.js"
+      icon: "heroicons:plus-circle"
+      difficulty: "Intermediate"
+      duration: "4-5 hours"
+      description: "Create a complete minting application with file upload, metadata generation, and smart contract interaction."
+      topics:
+        - "Next.js setup with TypeScript"
+        - "File upload to IPFS with Pinata"
+        - "Dynamic metadata generation"
+        - "Smart contract integration with ethers.js"
+        - "Transaction monitoring and confirmations"
+        - "Error handling and user feedback"
+      gradient: "from-orange-50 to-red-50"
+      iconColor: "orange"
+    - title: "Multi-Chain NFT Explorer"
+      icon: "heroicons:globe-alt"
+      difficulty: "Advanced"
+      duration: "6-7 hours"
+      description: "Build a sophisticated NFT explorer supporting multiple blockchains with advanced analytics and portfolio tracking."
+      topics:
+        - "Multi-chain architecture design"
+        - "Chain abstraction and unified APIs"
+        - "Real-time price tracking integration"
+        - "Portfolio analytics and performance metrics"
+        - "Cross-chain bridge integration"
+        - "Advanced caching and optimization"
+      gradient: "from-violet-50 to-purple-50"
+      iconColor: "violet"
+backendTutorials:
+  title: "Backend & Infrastructure"
+  subtitle: "Build scalable NFT backend systems"
+  tutorials:
+    - title: "NFT Indexing Service with Node.js"
+      icon: "heroicons:server"
+      difficulty: "Advanced"
+      duration: "5-6 hours"
+      description: "Create a high-performance indexing service that tracks NFT events, metadata, and market data across multiple chains."
+      topics:
+        - "Event listening and blockchain monitoring"
+        - "Database design for NFT data"
+        - "Real-time WebSocket updates"
+        - "API design and rate limiting"
+        - "Caching strategies with Redis"
+        - "Microservices architecture"
+      gradient: "from-gray-50 to-slate-50"
+      iconColor: "gray"
+    - title: "IPFS Integration and Metadata Management"
+      icon: "heroicons:cloud"
+      difficulty: "Intermediate"
+      duration: "3-4 hours"
+      description: "Implement robust IPFS integration for decentralized storage with backup strategies and performance optimization."
+      topics:
+        - "IPFS node setup and configuration"
+        - "Pinning strategies and redundancy"
+        - "Metadata standards and validation"
+        - "CDN integration for performance"
+        - "Backup and recovery procedures"
+        - "Cost optimization techniques"
+      gradient: "from-teal-50 to-cyan-50"
+      iconColor: "teal"
+    - title: "NFT Analytics and Market Data API"
+      icon: "heroicons:chart-bar"
+      difficulty: "Advanced"
+      duration: "7-8 hours"
+      description: "Build a comprehensive analytics platform providing market insights, price tracking, and trading analytics."
+      topics:
+        - "Data aggregation from multiple sources"
+        - "Real-time price calculation algorithms"
+        - "Statistical analysis and trend detection"
+        - "API design for analytics endpoints"
+        - "Data visualization and reporting"
+        - "Machine learning for price prediction"
+      gradient: "from-indigo-50 to-blue-50"
+      iconColor: "indigo"
+advancedTopics:
+  title: "Advanced Topics"
+  subtitle: "Cutting-edge NFT development techniques"
+  tutorials:
+    - title: "Layer 2 NFT Deployment (Polygon, Arbitrum)"
+      icon: "heroicons:bolt"
+      difficulty: "Advanced"
+      duration: "4-5 hours"
+      description: "Deploy and optimize NFT contracts on Layer 2 solutions for reduced costs and improved performance."
+      topics:
+        - "Layer 2 architecture comparison"
+        - "Cross-chain bridge implementation"
+        - "Gas optimization for L2 networks"
+        - "State synchronization strategies"
+        - "Security considerations for L2"
+      gradient: "from-yellow-50 to-orange-50"
+      iconColor: "yellow"
+    - title: "Dynamic NFTs with Chainlink Oracles"
+      icon: "heroicons:arrow-path"
+      difficulty: "Expert"
+      duration: "6-7 hours"
+      description: "Create NFTs that change based on real-world data using Chainlink oracles and automated systems."
+      topics:
+        - "Oracle integration patterns"
+        - "Automated metadata updates"
+        - "Real-world data integration"
+        - "Conditional logic implementation"
+        - "Gas-efficient update mechanisms"
+      gradient: "from-pink-50 to-rose-50"
+      iconColor: "pink"
+    - title: "NFT Fractionalization and DeFi Integration"
+      icon: "heroicons:puzzle-piece"
+      difficulty: "Expert"
+      duration: "8-10 hours"
+      description: "Implement advanced DeFi mechanics including NFT fractionalization, lending, and yield farming."
+      topics:
+        - "Fractionalization contract design"
+        - "Liquidity pool integration"
+        - "Lending and borrowing mechanisms"
+        - "Yield farming strategies"
+        - "Governance token implementation"
+      gradient: "from-emerald-50 to-green-50"
+      iconColor: "emerald"
+practicalProjects:
+  title: "Practical Projects"
+  subtitle: "End-to-end project tutorials"
+  projects:
+    - title: "Build a Complete NFT Marketplace"
+      description: "10-week comprehensive project building a production-ready NFT marketplace"
+      duration: "10 weeks"
+      difficulty: "Advanced"
+      modules:
+        - "Project planning and architecture design"
+        - "Smart contract development and testing"
+        - "Frontend development with React/Next.js"
+        - "Backend API and database design"
+        - "IPFS integration and metadata management"
+        - "Payment processing and escrow systems"
+        - "Security auditing and optimization"
+        - "Deployment and DevOps setup"
+        - "Marketing and community building"
+        - "Maintenance and scaling strategies"
+    - title: "Create an NFT Gaming Ecosystem"
+      description: "8-week project building a play-to-earn game with NFT integration"
+      duration: "8 weeks"
+      difficulty: "Expert"
+      modules:
+        - "Game design and tokenomics"
+        - "Multi-token smart contract system"
+        - "Unity/Unreal Engine integration"
+        - "Player progression and rewards"
+        - "Marketplace and trading systems"
+        - "Anti-cheat and security measures"
+        - "Community governance implementation"
+        - "Launch and growth strategies"
+    - title: "Enterprise NFT Solution"
+      description: "12-week enterprise-grade NFT platform for businesses"
+      duration: "12 weeks"
+      difficulty: "Expert"
+      modules:
+        - "Enterprise requirements analysis"
+        - "Scalable architecture design"
+        - "Multi-tenant smart contract system"
+        - "Enterprise authentication integration"
+        - "Compliance and regulatory features"
+        - "Advanced analytics and reporting"
+        - "API gateway and microservices"
+        - "Load testing and performance optimization"
+        - "Security auditing and penetration testing"
+        - "Documentation and training materials"
+        - "Deployment and monitoring setup"
+        - "Support and maintenance planning"
+resources:
+  title: "Development Resources"
+  subtitle: "Essential tools and references for NFT development"
+  categories:
+    - title: "Development Frameworks"
+      items:
+        - "Hardhat - Ethereum development environment"
+        - "Truffle Suite - Smart contract development"
+        - "Foundry - Fast Solidity testing framework"
+        - "Brownie - Python-based development framework"
+        - "Anchor - Solana program development"
+    - title: "Frontend Libraries"
+      items:
+        - "ethers.js - Ethereum JavaScript library"
+        - "web3.js - Web3 JavaScript API"
+        - "wagmi - React hooks for Ethereum"
+        - "useDApp - React framework for DApps"
+        - "Moralis SDK - Web3 development platform"
+    - title: "Testing Tools"
+      items:
+        - "Waffle - Smart contract testing"
+        - "OpenZeppelin Test Helpers"
+        - "Ganache - Personal blockchain for testing"
+        - "Tenderly - Smart contract monitoring"
+        - "MythX - Security analysis platform"
+    - title: "Deployment & Infrastructure"
+      items:
+        - "Infura - Ethereum node infrastructure"
+        - "Alchemy - Blockchain developer platform"
+        - "Pinata - IPFS pinning service"
+        - "The Graph - Blockchain data indexing"
+        - "Chainlink - Decentralized oracle network"
+bestPractices:
+  title: "Development Best Practices"
+  subtitle: "Industry standards and security guidelines"
+  practices:
+    - icon: "heroicons:shield-check"
+      title: "Security First"
+      description: "Always prioritize security in smart contract development with proper testing, audits, and established patterns."
+      details:
+        - "Use OpenZeppelin's battle-tested contracts"
+        - "Implement comprehensive unit and integration tests"
+        - "Follow the checks-effects-interactions pattern"
+        - "Use reentrancy guards and access controls"
+        - "Conduct professional security audits"
+      color: "red"
+    - icon: "heroicons:beaker"
+      title: "Thorough Testing"
+      description: "Implement comprehensive testing strategies covering all contract functions and edge cases."
+      details:
+        - "Achieve 100% code coverage in tests"
+        - "Test both positive and negative scenarios"
+        - "Use fuzzing for edge case discovery"
+        - "Implement integration tests with frontend"
+        - "Test on multiple networks and conditions"
+      color: "blue"
+    - icon: "heroicons:cog"
+      title: "Gas Optimization"
+      description: "Optimize smart contracts for minimal gas consumption while maintaining functionality."
+      details:
+        - "Use appropriate data types and packing"
+        - "Minimize storage operations"
+        - "Implement batch operations where possible"
+        - "Use events for off-chain data storage"
+        - "Profile and benchmark gas usage"
+      color: "green"
+    - icon: "heroicons:document-text"
+      title: "Documentation"
+      description: "Maintain comprehensive documentation for contracts, APIs, and development processes."
+      details:
+        - "Use NatSpec for smart contract documentation"
+        - "Create detailed API documentation"
+        - "Maintain up-to-date README files"
+        - "Document deployment and upgrade procedures"
+        - "Provide code examples and tutorials"
+      color: "purple"
+---
