@@ -20,6 +20,10 @@ importers:
       nuxt:
         specifier: ^3.13.0
         version: 3.19.2(@parcel/watcher@2.5.1)(@vue/compiler-sfc@3.5.21)(db0@0.3.2)(ioredis@5.7.0)(magicast@0.3.5)(rollup@4.52.0)(terser@5.44.0)(vite@7.1.6(jiti@2.5.1)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)
+    devDependencies:
+      '@iconify-json/heroicons':
+        specifier: ^1.2.3
+        version: 1.2.3
 
 packages:
 
@@ -330,6 +334,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@iconify-json/heroicons@1.2.3':
+    resolution: {integrity: sha512-n+vmCEgTesRsOpp5AB5ILB6srsgsYK+bieoQBNlafvoEhjVXLq8nIGN4B0v/s4DUfa0dOrjwE/cKJgIKdJXOEg==}
 
   '@iconify/collections@1.0.596':
     resolution: {integrity: sha512-+fc3aqkxIZlKa6n2Ez28OFOM2pDzh+Jf4YI8grhz/9JKhkkxFoLJAWrLFgepd6dp9sOme57gCy/p+mApZeKYAA==}
@@ -4343,6 +4350,10 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.10':
     optional: true
+
+  '@iconify-json/heroicons@1.2.3':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/collections@1.0.596':
     dependencies:

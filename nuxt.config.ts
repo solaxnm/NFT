@@ -19,7 +19,7 @@ export default defineNuxtConfig({
         { name: 'author', content: 'SolanaM Platform' },
         { name: 'robots', content: 'index, follow' },
         { name: 'language', content: 'en' },
-        { name: 'revisit-after', content: '7 days' },
+        { name: 'revisit-after', content: '1 days' },
         
         // Open Graph / Facebook
         { property: 'og:type', content: 'website' },
@@ -53,11 +53,6 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'canonical', href: 'https://nft.solanam.com' }
       ]
-    }
-  },
-  nitro: {
-    prerender: {
-      routes: ['/sitemap.xml']
     }
   },
   content: {

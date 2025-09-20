@@ -1,10 +1,6 @@
 <template>
   <div class="pt-16 pb-8">
-    <!-- SEO Meta Tags -->
-    <Head>
-      <Title>NFT Marketplaces & Trading Platforms | NFT Learn by SolanaM</Title>
-      <Meta name="description" content="Comprehensive guide to NFT marketplaces: OpenSea, Magic Eden, Blur, and specialized platforms. Learn trading strategies, fees, and market analysis." />
-    </Head>
+    
 
     <!-- Header -->
     <section class="bg-gradient-to-br from-emerald-50 to-teal-50 py-16">
