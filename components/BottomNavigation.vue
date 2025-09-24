@@ -84,7 +84,7 @@ onMounted(() => {
 }
 
 .nav-icon-container {
-  @apply relative mb-1;
+  @apply relative mt-1;
 }
 
 .nav-icon {

@@ -3,20 +3,17 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <!-- Logo and Brand -->
-        <div class="flex items-center">
+        <div class="flex flex-col items-center">
           <NuxtLink to="/" class="flex items-center space-x-3 group">
-            <div class="hidden sm:block">
               <div class="text-xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                NFT Learn
+                Learn NFT
               </div>
-            </div>
           </NuxtLink>
           <a href="https://solanam.com" target="_blank" class="text-xs text-gray-500 font-medium -mt-1">
-            by SolanaM
+            by <b>SolanaM</b>
           </a>
         </div>
-        
-        <!-- Desktop Navigation -->
+
         <div class="hidden lg:flex items-center space-x-1">
           <NuxtLink to="/" class="nav-link">
             <Icon name="heroicons:home" class="nav-icon" />

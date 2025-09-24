@@ -4,8 +4,8 @@
     <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-16">
       <div class="max-w-4xl mx-auto px-4 text-center">
         <div class="mb-8">
-          <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 float-animation">
-            <img src="/apple-touch-icon.png" alt="logo" class="w-12 h-12 rounded-xl" />
+          <div class="rounded-2xl flex items-center justify-center mx-auto mb-6 float-animation">
+            <img src="/N.svg" alt="logo" class="w-20 h-20" />
           </div>
           <h1 class="text-4xl md:text-6xl font-bold gradient-text mb-4">
             {{ data.hero.title }}
