@@ -81,7 +81,6 @@ export default defineNuxtConfig({
     // Added for better content SEO
     markdown: {
       anchorLinks: true, // Enable anchor links for headers
-      remarkPlugins: ['remark-reading-time'], // Add reading time for blog posts
     },
     documentDriven: true // Enable document-driven mode for better SEO
   },
